@@ -10,7 +10,14 @@ from pugorugh.views import UserRegisterView
 # API endpoints
 urlpatterns = format_suffix_patterns([
     url(r'^api/user/login/$', obtain_auth_token, name='login-user'),
+    url(r'^api/user/preference')
     url(r'^api/user/$', UserRegisterView.as_view(), name='register-user'),
+    url(r'^api/dog/(?P<pk>.*)/liked/next$'),
+    url(r'^api/dog/(?P<pk>.*)/disliked/next$'),
+    url(r'^api/dog/(?P<pk>.*)/undecided/next$'),
+    url(r'^api/dog/(?P<pk>.*)/liked/$'),
+    url(r'^api/dog/(?P<pk>.*)/disliked/$'),
+    url(r'^api/dog/(?P<pk>.*)/undecided/$'),
     url(r'^favicon\.ico$',
         RedirectView.as_view(
             url='/static/icons/favicon.ico',
